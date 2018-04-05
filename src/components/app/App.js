@@ -55,6 +55,11 @@ class App extends Component {
 
   storePlaylist() {
     let uris = this.state.playlistTracks.map(track => track.uri);
+    Spotify.storePlaylist(this.state.playlistName, uris);
+    this.setState({
+      playlistName: 'New Playlist',
+      searchResults: []
+    })
   }
 
   search(term) {
